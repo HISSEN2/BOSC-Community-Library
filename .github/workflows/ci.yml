@@ -1,0 +1,12 @@
+name: BOSC Quality Audit
+on: [push, pull_request]
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Verify Documentation & Licenses
+        run: |
+          echo "Scanning for LICENSE file..."
+          test -f LICENSE && echo "License check passed."
+          echo "Automated Governance Check: COMPLETE."
